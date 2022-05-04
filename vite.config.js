@@ -1,7 +1,10 @@
 export default {
-    base: "./",
-    root: "./src",
-    build: {
-        outDir: "../dist/",
-    },
+  base: './',
+  root: './src',
+  build: {
+    outDir: '../dist/',
+  },
+  rollupOptions: {
+    external: /^lit/,
+  },
 };
