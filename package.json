@@ -1,0 +1,25 @@
+{
+    "name": "vite-project",
+    "private": true,
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build --emptyOutDir && cp -r ./src/static ./dist"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.13",
+        "@types/node": "^17.0.29",
+        "@typescript-eslint/eslint-plugin": "^5.21.0",
+        "@typescript-eslint/parser": "^5.21.0",
+        "dotenv": "^16.0.0",
+        "eslint": "^8.14.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-airbnb-base-typescript": "^1.0.0",
+        "eslint-import-resolver-typescript": "^2.7.1",
+        "eslint-plugin-import": "^2.26.0",
+        "prettier": "^2.6.2",
+        "typescript": "^4.5.4",
+        "vite": "^2.9.5"
+    },
+    "type": "module"
+}
