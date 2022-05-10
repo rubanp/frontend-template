@@ -2,7 +2,7 @@ export default {
   base: './',
   root: './src',
   build: {
-    outDir: '../docs/',
+    outDir: '../dist/',
   },
   rollupOptions: {
     external: /^lit/,
