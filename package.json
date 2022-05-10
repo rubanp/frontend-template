@@ -1,12 +1,12 @@
 {
-  "name": "frontend-template",
+  "name": "project-name",
   "private": true,
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build --emptyOutDir && cp -r ./src/static ./dist",
     "lint:css": "stylelint --config ./.stylelintrc.css.json ./src/styles/*.css",
-    "deploy": "rm -rf dist && npm run build && cd dist && git init && git add . && git commit -m 'deploy' && git remote add origin https://github.com/rubanp/change-repo-name && git push --force origin main:gh-pages"
+    "deploy": "rm -rf dist && npm run build && cd dist && git init && git add . && git commit -m 'deploy' && git remote add origin https://github.com/rubanp/project-name && git push --force origin main:gh-pages"
   },
   "devDependencies": {
     "@types/node": "^17.0.29",
