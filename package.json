@@ -1,15 +1,18 @@
 {
-  "name": "vite-project",
+  "name": "frontend-template",
   "private": true,
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --emptyOutDir && cp -r ./src/static ./dist"
+    "build": "vite build --emptyOutDir && cp -r ./src/static ./dist",
+    "lint:css": "stylelint --config ./.stylelintrc.css.json ./src/styles/*.css",
+    "deploy": "rm -rf dist && npm run build && cd dist && git init && git add . && git commit -m 'deploy' && git remote add origin https://github.com/rubanp/change-repo-name && git push --force origin main:gh-pages"
   },
   "devDependencies": {
     "@types/node": "^17.0.29",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
+    "animate.css": "^4.1.1",
     "eslint": "^8.14.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-base-typescript": "^1.0.0",
@@ -18,6 +21,10 @@
     "eslint-plugin-lit": "^1.6.1",
     "lit-analyzer": "^0.0.6",
     "prettier": "^2.6.2",
+    "stylelint": "^14.8.2",
+    "stylelint-config-recommended": "^7.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
     "ts-lit-plugin": "^1.0.5",
     "typescript": "^4.5.4",
     "vite": "^2.9.5"
@@ -27,3 +34,4 @@
     "lit": "^2.2.3"
   }
 }
+
