@@ -1,5 +1,6 @@
 {
   "include": ["src/*", "./src/**/*"],
+  "exclude": ["src/tests/*"],
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": false,
