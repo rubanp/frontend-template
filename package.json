@@ -1,26 +1,43 @@
 {
-  "name": "project-name",
+  "name": "skilled-landing-page",
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "custom-elements-manifest analyze & vite",
     "build": "vite build --emptyOutDir && cp -r ./src/static ./dist",
     "lint:css": "stylelint --config ./.stylelintrc.css.json ./src/styles/*.css",
-    "deploy": "rm -rf dist && npm run build && cd dist && git init && git add . && git commit -m 'deploy' && git remote add origin https://github.com/rubanp/project-name && git push --force origin main:gh-pages"
+    "deploy": "rm -rf dist && npm run build && cd dist && git init && git add . && git commit -m 'deploy' && git remote add origin https://github.com/rubanp/skilled-landing-page && git push --force origin main:gh-pages",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@custom-elements-manifest/analyzer": "^0.5.7",
+    "@open-wc/storybook": "^0.2.8",
+    "@storybook/addon-a11y": "^6.4.22",
+    "@storybook/addon-actions": "^6.4.22",
+    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-jest": "^6.4.22",
+    "@storybook/addon-links": "^6.4.22",
+    "@storybook/addon-storysource": "^6.4.22",
+    "@storybook/builder-vite": "^0.1.33",
+    "@storybook/web-components": "^6.4.22",
     "@types/node": "^17.0.29",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
     "animate.css": "^4.1.1",
+    "babel-loader": "^8.2.5",
     "eslint": "^8.14.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-base-typescript": "^1.0.0",
     "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-lit": "^1.6.1",
+    "eslint-plugin-storybook": "^0.5.11",
+    "jest": "^28.1.0",
     "lit-analyzer": "^0.0.6",
     "prettier": "^2.6.2",
+    "storybook-dark-mode": "^1.1.0",
     "stylelint": "^14.8.2",
     "stylelint-config-recommended": "^7.0.0",
     "stylelint-config-styled-components": "^0.1.1",
@@ -31,7 +48,8 @@
   },
   "type": "module",
   "dependencies": {
+    "countup.js": "^2.1.0",
     "lit": "^2.2.3"
-  }
+  },
+  "customElements": "custom-elements.json"
 }
-

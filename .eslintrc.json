@@ -4,7 +4,11 @@
     "es2021": true,
     "node": true
   },
-  "extends": ["airbnb-base", "plugin:lit/recommended"],
+  "extends": [
+    "airbnb-base",
+    "plugin:lit/recommended",
+    "plugin:storybook/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -43,4 +47,3 @@
     "project": ["./tsconfig.json"]
   }
 }
-
