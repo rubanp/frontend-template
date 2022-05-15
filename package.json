@@ -1,13 +1,12 @@
 {
-  "name": "skilled-landing-page",
+  "name": "project-name",
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "custom-elements-manifest analyze & vite",
+    "dev": "custom-elements-manifest analyze & vite & start-storybook -p 6006",
     "build": "vite build --emptyOutDir && cp -r ./src/static ./dist",
     "lint:css": "stylelint --config ./.stylelintrc.css.json ./src/styles/*.css",
-    "deploy": "rm -rf dist && npm run build && cd dist && git init && git add . && git commit -m 'deploy' && git remote add origin https://github.com/rubanp/skilled-landing-page && git push --force origin main:gh-pages",
-    "storybook": "start-storybook -p 6006",
+    "deploy": "rm -rf dist && npm run build && cd dist && git init && git add . && git commit -m 'deploy' && git remote add origin https://github.com/rubanp/project-name && git push --force origin main:gh-pages",
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
