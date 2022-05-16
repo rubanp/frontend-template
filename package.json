@@ -8,7 +8,9 @@
     "lint:css": "stylelint --config ./.stylelintrc.css.json ./src/styles/*.css",
     "deploy": "rm -rf dist && npm run build && cd dist && git init && git add . && git commit -m 'deploy' && git remote add origin https://github.com/rubanp/project-name && git push --force origin main:gh-pages",
     "build-storybook": "build-storybook",
-    "test": "wtr ./src/components/**/**/*.test.js --node-resolve"
+    "test": "wtr ./src/components/**/**/*.test.js --node-resolve",
+    "scaffold": "node ./utils/scaffold.js",
+    "new-component": "node ./utils/component.js"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",

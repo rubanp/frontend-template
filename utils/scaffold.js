@@ -59,12 +59,12 @@ setTimeout(() => {
   elements.forEach((element) => {
     const elementName = 'o-' + _.kebabCase(element);
     const className = _.upperFirst(_.camelCase(element));
-    const componentName = _.startCase(element);
+    const componentLabel = _.startCase(element);
     exec(`sed -i "" -e 's/componentName/${elementName}/' ./src/components/elements/${elementName}/${elementName}.ts`);
     exec(`sed -i "" -e 's/className/${className}/' ./src/components/elements/${elementName}/${elementName}.ts`);
     exec(`sed -i "" -e 's/componentName/${elementName}/' ./src/components/elements/${elementName}/${elementName}.stories.js`);
     exec(`sed -i "" -e 's/className/${className}/' ./src/components/elements/${elementName}/${elementName}.stories.js`);
-    exec(`sed -i "" -e 's/componentLabel/${componentName}/' ./src/components/elements/${elementName}/${elementName}.stories.js`);
+    exec(`sed -i "" -e 's/componentLabel/${componentLabel}/' ./src/components/elements/${elementName}/${elementName}.stories.js`);
     exec(`sed -i "" -e 's/componentType/Element/' ./src/components/elements/${elementName}/${elementName}.stories.js`);
   })
 
@@ -96,12 +96,12 @@ setTimeout(() => {
   composites.forEach((composite) => {
     const compositeName = 'o-' + _.kebabCase(composite);
     const className = _.upperFirst(_.camelCase(composite));
-    const componentName = _.startCase(composite);
+    const componentLabel = _.startCase(composite);
     exec(`sed -i "" -e 's/componentName/${compositeName}/' ./src/components/composites/${compositeName}/${compositeName}.ts`);
     exec(`sed -i "" -e 's/className/${className}/' ./src/components/composites/${compositeName}/${compositeName}.ts`);
     exec(`sed -i "" -e 's/componentName/${compositeName}/' ./src/components/composites/${compositeName}/${compositeName}.stories.js`);
     exec(`sed -i "" -e 's/className/${className}/' ./src/components/composites/${compositeName}/${compositeName}.stories.js`);
-    exec(`sed -i "" -e 's/componentLabel/${componentName}/' ./src/components/composites/${compositeName}/${compositeName}.stories.js`);
+    exec(`sed -i "" -e 's/componentLabel/${componentLabel}/' ./src/components/composites/${compositeName}/${compositeName}.stories.js`);
     exec(`sed -i "" -e 's/componentType/Composite/' ./src/components/composites/${compositeName}/${compositeName}.stories.js`);
   })
 
@@ -133,12 +133,12 @@ setTimeout(() => {
   sections.forEach((section) => {
     const sectionName = 'o-' + _.kebabCase(section);
     const className = _.upperFirst(_.camelCase(section));
-    const componentName = _.startCase(section);
+    const componentLabel = _.startCase(section);
     exec(`sed -i "" -e 's/componentName/${sectionName}/' ./src/components/sections/${sectionName}/${sectionName}.ts`);
     exec(`sed -i "" -e 's/className/${className}/' ./src/components/sections/${sectionName}/${sectionName}.ts`);
     exec(`sed -i "" -e 's/componentName/${sectionName}/' ./src/components/sections/${sectionName}/${sectionName}.stories.js`);
     exec(`sed -i "" -e 's/className/${className}/' ./src/components/sections/${sectionName}/${sectionName}.stories.js`);
-    exec(`sed -i "" -e 's/componentLabel/${componentName}/' ./src/components/sections/${sectionName}/${sectionName}.stories.js`);
+    exec(`sed -i "" -e 's/componentLabel/${componentLabel}/' ./src/components/sections/${sectionName}/${sectionName}.stories.js`);
     exec(`sed -i "" -e 's/componentType/Section/' ./src/components/sections/${sectionName}/${sectionName}.stories.js`);
   })
 
