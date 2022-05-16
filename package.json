@@ -7,7 +7,8 @@
     "build": "vite build --emptyOutDir && cp -r ./src/static ./dist",
     "lint:css": "stylelint --config ./.stylelintrc.css.json ./src/styles/*.css",
     "deploy": "rm -rf dist && npm run build && cd dist && git init && git add . && git commit -m 'deploy' && git remote add origin https://github.com/rubanp/project-name && git push --force origin main:gh-pages",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test": "wtr ./src/components/**/**/*.test.js --node-resolve"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
@@ -16,7 +17,6 @@
     "@storybook/addon-a11y": "^6.4.22",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",
-    "@storybook/addon-jest": "^6.4.22",
     "@storybook/addon-links": "^6.4.22",
     "@storybook/addon-storysource": "^6.4.22",
     "@storybook/builder-vite": "^0.1.33",
@@ -24,6 +24,8 @@
     "@types/node": "^17.0.29",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
+    "@web/test-runner": "^0.13.27",
+    "@web/test-runner-puppeteer": "^0.10.5",
     "babel-loader": "^8.2.5",
     "chalk": "^5.0.1",
     "enquirer": "^2.3.6",
@@ -35,9 +37,9 @@
     "eslint-plugin-lit": "^1.6.1",
     "eslint-plugin-storybook": "^0.5.11",
     "fs-extra": "^10.1.0",
-    "jest-puppeteer": "^6.1.0",
     "lit-analyzer": "^0.0.6",
     "lodash": "^4.17.21",
+    "mocha": "^10.0.0",
     "prettier": "^2.6.2",
     "puppeteer": "^14.1.0",
     "storybook-dark-mode": "^1.1.0",
