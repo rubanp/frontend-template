@@ -1,7 +1,7 @@
 import type { StorybookConfig } from '@storybook/core-common';
 
 const config: StorybookConfig = {
-  stories: ['../src/**/*.stories.@(js|mdx)'],
+  stories: ['../src/components/**/**/*.stories.@(js|mdx)'],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
