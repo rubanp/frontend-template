@@ -9,21 +9,23 @@ const type = await new Select({
   name: 'type',
   message: 'Pick a component type',
   choices: ['element', 'composite', 'section'],
-}).run((type) => type).catch((err) => console.error(err));
+}).run((compType) => compType).catch((err) => console.error(err));
 
 const components = await new List({
   name: 'keywords',
   message: `What ${type}s would you like to create? ${chalk.grey.dim('(none)')}`,
-}).run().then((componentNames) => componentNames.map((componentName) => componentName.toLowerCase())).catch(console.error);
+}).run()
+  .then((componentNames) => componentNames.map((componentName) => componentName.toLowerCase()))
+  .catch(console.error);
 
 // Create files
 components.forEach((component) => {
   const componentName = `o-${_.kebabCase(component)}`;
   fse.mkdirp(`./src/components/${type}s/${componentName}`).catch((err) => console.error(err));
-  fse.copy('./utils/templates/o-component.ts', `./src/components/${type}s/${componentName}/${componentName}.ts`).catch((err) => console.error(err));
-  fse.copy('./utils/templates/o-component.stories.js', `./src/components/${type}s/${componentName}/${componentName}.stories.js`).catch((err) => console.error(err));
-  fse.copy('./utils/templates/o-component.docs.mdx', `./src/components/${type}s/${componentName}/${componentName}.docs.mdx`).catch((err) => console.error(err));
-  fse.copy('./utils/templates/o-component.test.js', `./src/components/${type}s/${componentName}/${componentName}.test.js`).catch((err) => console.error(err));
+  fse.copy('./templates/o-component.ts', `./src/components/${type}s/${componentName}/${componentName}.ts`).catch((err) => console.error(err));
+  fse.copy('./templates/o-component.stories.js', `./src/components/${type}s/${componentName}/${componentName}.stories.js`).catch((err) => console.error(err));
+  fse.copy('./templates/o-component.docs.mdx', `./src/components/${type}s/${componentName}/${componentName}.docs.mdx`).catch((err) => console.error(err));
+  fse.copy('./templates/o-component.test.js', `./src/components/${type}s/${componentName}/${componentName}.test.js`).catch((err) => console.error(err));
 });
 
 // Set correct names within files
