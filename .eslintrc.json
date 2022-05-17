@@ -41,7 +41,8 @@
         "peerDependencies": false, 
         "packageDir": "./"
       }
-    ] 
+    ],
+    "no-restricted-syntax": "warn"
   },
   "settings": {
     "import/parsers": {

@@ -9,8 +9,8 @@
     "deploy": "rm -rf dist && npm run build && cd dist && git init && git add . && git commit -m 'deploy' && git remote add origin https://github.com/rubanp/project-name && git push --force origin main:gh-pages",
     "build-storybook": "build-storybook",
     "test": "wtr ./src/components/**/**/*.test.js --node-resolve",
-    "scaffold": "node ./utils/scaffold.js",
-    "new": "node ./utils/component.js",
+    "scaffold": "node ./templates/scaffold.js",
+    "new": "node ./templates/component.js",
     "nuke": "rm -rf ./node_modules && npm i"
   },
   "devDependencies": {
