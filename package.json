@@ -16,6 +16,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.10",
     "@custom-elements-manifest/analyzer": "^0.5.7",
+    "@esm-bundle/chai": "^4.3.4-fix.0",
     "@open-wc/storybook": "^0.2.8",
     "@storybook/addon-a11y": "^6.4.22",
     "@storybook/addon-actions": "^6.4.22",

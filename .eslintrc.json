@@ -45,5 +45,9 @@
       }
     },
     "project": ["./tsconfig.json"]
+  },
+  "globals": {
+    "describe": "readonly",
+    "it": "readonly"
   }
 }
