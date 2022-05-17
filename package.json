@@ -10,7 +10,8 @@
     "build-storybook": "build-storybook",
     "test": "wtr ./src/components/**/**/*.test.js --node-resolve",
     "scaffold": "node ./utils/scaffold.js",
-    "new-component": "node ./utils/component.js"
+    "new": "node ./utils/component.js",
+    "nuke": "rm -rf ./node_modules && npm i"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",

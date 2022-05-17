@@ -8,7 +8,6 @@ const config: StorybookConfig = {
     "storybook-dark-mode",
     "@storybook/addon-a11y",
     "@storybook/addon-storysource",
-    '@storybook/addon-jest',
   ],
   framework: "@storybook/web-components",
   core: {
