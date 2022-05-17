@@ -33,7 +33,15 @@
       "error",
       { "varsIgnorePattern": "HTMLElementTagNameMap" }
     ],
-    "class-methods-use-this": [2, { "exceptMethods": ["render"] }]
+    "class-methods-use-this": [2, { "exceptMethods": ["render"] }],
+    "import/no-extraneous-dependencies": [
+      "error", {
+        "devDependencies": true, 
+        "optionalDependencies": false, 
+        "peerDependencies": false, 
+        "packageDir": "./"
+      }
+    ] 
   },
   "settings": {
     "import/parsers": {
@@ -49,5 +57,13 @@
   "globals": {
     "describe": "readonly",
     "it": "readonly"
-  }
+  },
+  "overrides": [
+    {
+      "files": "./src/**/**/*.test.js",
+      "rules": {
+        "no-unused-expressions": "off"
+      }
+    }
+  ]
 }
