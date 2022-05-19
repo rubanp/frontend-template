@@ -36,9 +36,9 @@ setTimeout(() => {
     const componentLabel = _.startCase(component);
     exec(`sed -i "" -e 's/componentName/${componentName}/' ./src/components/${type}s/${componentName}/${componentName}.ts`);
     exec(`sed -i "" -e 's/className/${className}/' ./src/components/${type}s/${componentName}/${componentName}.ts`);
-    exec(`sed -i "" -e 's/componentName/${componentName}/' ./src/components/${type}s/${componentName}/${componentName}.stories.js`);
+    exec(`sed -i "" -e 's/componentName/${componentName}/g' ./src/components/${type}s/${componentName}/${componentName}.stories.js`);
     exec(`sed -i "" -e 's/className/${className}/' ./src/components/${type}s/${componentName}/${componentName}.stories.js`);
     exec(`sed -i "" -e 's/componentLabel/${componentLabel}/' ./src/components/${type}s/${componentName}/${componentName}.stories.js`);
     exec(`sed -i "" -e 's/componentType/Element/' ./src/components/${type}s/${componentName}/${componentName}.stories.js`);
   });
-}, 500);
+}, 750);
