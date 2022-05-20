@@ -25,7 +25,6 @@ components.forEach((component) => {
   fse.copy('./templates/o-component.ts', `./src/components/${type}s/${componentName}/${componentName}.ts`).catch((err) => console.error(err));
   fse.copy('./templates/o-component.stories.js', `./src/components/${type}s/${componentName}/${componentName}.stories.js`).catch((err) => console.error(err));
   fse.copy('./templates/o-component.docs.mdx', `./src/components/${type}s/${componentName}/${componentName}.docs.mdx`).catch((err) => console.error(err));
-  fse.copy('./templates/o-component.test.js', `./src/components/${type}s/${componentName}/${componentName}.test.js`).catch((err) => console.error(err));
 });
 
 // Set correct names within files

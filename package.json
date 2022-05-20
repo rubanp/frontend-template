@@ -10,7 +10,7 @@
     "lint:css": "stylelint --config ./.stylelintrc.css.json ./src/styles/*.css",
     "deploy": "rm -rf dist && npm run build && cd dist && git init && git add . && git commit -m 'deploy' && git remote add origin https://github.com/rubanp/project-name && git push --force origin main:gh-pages",
     "build-storybook": "build-storybook",
-    "test": "./node_modules/mocha/bin/mocha.js ./src/components/**/*.test.js",
+    "test": "./node_modules/mocha/bin/mocha.js ./tests/*.test.js",
     "scaffold": "node ./templates/scaffold.js",
     "new": "node ./templates/component.js",
     "nuke": "rm -rf ./node_modules && npm i"

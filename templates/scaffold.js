@@ -51,7 +51,6 @@ elements.forEach((element) => {
   fse.copy('./templates/o-component.ts', `./src/components/elements/${elementName}/${elementName}.ts`).catch((err) => console.error(err));
   fse.copy('./templates/o-component.stories.js', `./src/components/elements/${elementName}/${elementName}.stories.js`).catch((err) => console.error(err));
   fse.copy('./templates/o-component.docs.mdx', `./src/components/elements/${elementName}/${elementName}.docs.mdx`).catch((err) => console.error(err));
-  fse.copy('./templates/o-component.test.js', `./src/components/elements/${elementName}/${elementName}.test.js`).catch((err) => console.error(err));
 });
 
 // Set correct names within files
@@ -76,7 +75,9 @@ setTimeout(() => {
 const composites = await new List({
   name: 'keywords',
   message: `What composite components would you like to create? ${chalk.grey.dim('(none)')}`,
-}).run().then((compositeNames) => compositeNames.map((compositeName) => compositeName.toLowerCase())).catch(console.error);
+}).run()
+  .then((compositeNames) => compositeNames.map((compositeName) => compositeName.toLowerCase()))
+  .catch(console.error);
 
 // Create files
 composites.forEach((composite) => {
@@ -85,7 +86,6 @@ composites.forEach((composite) => {
   fse.copy('./templates/o-component.ts', `./src/components/composites/${compositeName}/${compositeName}.ts`).catch((err) => console.error(err));
   fse.copy('./templates/o-component.stories.js', `./src/components/composites/${compositeName}/${compositeName}.stories.js`).catch((err) => console.error(err));
   fse.copy('./templates/o-component.docs.mdx', `./src/components/composites/${compositeName}/${compositeName}.docs.mdx`).catch((err) => console.error(err));
-  fse.copy('./templates/o-component.test.js', `./src/components/composites/${compositeName}/${compositeName}.test.js`).catch((err) => console.error(err));
 });
 
 // Set correct names within files
@@ -121,7 +121,6 @@ sections.forEach((section) => {
   fse.copy('./templates/o-component.ts', `./src/components/sections/${sectionName}/${sectionName}.ts`).catch((err) => console.error(err));
   fse.copy('./templates/o-component.stories.js', `./src/components/sections/${sectionName}/${sectionName}.stories.js`).catch((err) => console.error(err));
   fse.copy('./templates/o-component.docs.mdx', `./src/components/sections/${sectionName}/${sectionName}.docs.mdx`).catch((err) => console.error(err));
-  fse.copy('./templates/o-component.test.js', `./src/components/sections/${sectionName}/${sectionName}.test.js`).catch((err) => console.error(err));
 });
 
 // Set correct names within files
