@@ -81,6 +81,7 @@ dist/
 dist-ssr
 *.local
 .env
+*.commit
 
 # Logs
 logs

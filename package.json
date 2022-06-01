@@ -12,7 +12,10 @@
     "deploy": "rm -rf dist && npm run build && cd dist && git init && git add . && git commit -m 'deploy' && git remote add origin https://github.com/rubanp/project-name && git push --force origin main:gh-pages",
     "test": "mocha ./tests/*.test.js",
     "create": "node ./utils/create.js",
-    "nuke": "rm -rf ./node_modules && npm i"
+    "nuke": "rm -rf ./node_modules && npm i",
+    "new": "node ./utils/new.js",
+    "save": "node ./utils/save.js",
+    "intent": "node ./utils/intent.js"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
@@ -32,6 +35,7 @@
     "@typescript-eslint/parser": "^5.21.0",
     "axe-core": "^4.4.2",
     "babel-loader": "^8.2.5",
+    "boxen": "^6.2.1",
     "chalk": "^5.0.1",
     "enquirer": "^2.3.6",
     "eslint": "^8.14.0",
@@ -42,6 +46,8 @@
     "eslint-plugin-lit": "^1.6.1",
     "eslint-plugin-storybook": "^0.5.12",
     "fs-extra": "^10.1.0",
+    "inquirer": "^8.2.4",
+    "inquirer-maxlength-input-prompt": "^1.0.2",
     "lit-analyzer": "^0.0.6",
     "lodash": "^4.17.21",
     "mocha": "^10.0.0",
