@@ -14,36 +14,37 @@ const folder = 'dist';
 
 const { stdout } = await execAsync(`ls ./${folder}`);
 const pageNames = stdout.match(/.*\.html/g);
-console.log(pageNames);
 
 describe('Accessability', () => {
-  it(`${pageNames[0]}`, async () => {
-    const browser = await puppeteer.launch({ headless: true });
-    const page = await browser.newPage();
-    await page.setBypassCSP(true);
-    await page.goto(`${url}/${pageNames[0]}`);
-    await page.addScriptTag({
-      path: 'node_modules/axe-core/axe.min.js',
-    });
-    const axeResults = await page.evaluate(async () => await axe.run());
-    delete axeResults.passes;
-    delete axeResults.inapplicable;
-    delete axeResults.incomplete;
-    const fileName = `axe-${pageNames[0].split('.')[0]}.json`;
-    fse.outputFile(`logs/accessibility-tests/${now}/${fileName}`, JSON.stringify(axeResults, 0, 4), (err) => {
-      if (err) {
-        console.error(err);
-      }
-    });
-    await browser.close();
-    expect(`${axeResults.violations.length} violations`).to.equal(
-      '0 violations',
-      `${JSON.stringify(axeResults.violations.map((violation) => ({
-        id: violation.id,
-        description: violation.description,
-        help: violation.helpUrl,
-      })), 0, 4)}
+  pageNames.forEach((pageName) => {
+    it(`${pageName}`, async () => {
+      const browser = await puppeteer.launch({ headless: true });
+      const page = await browser.newPage();
+      await page.setBypassCSP(true);
+      await page.goto(`${url}/${pageName}`);
+      await page.addScriptTag({
+        path: 'node_modules/axe-core/axe.min.js',
+      });
+      const axeResults = await page.evaluate(() => axe.run());
+      delete axeResults.passes;
+      delete axeResults.inapplicable;
+      delete axeResults.incomplete;
+      const fileName = `axe-${pageName.split('.')[0]}.json`;
+      fse.outputFile(`logs/accessibility-tests/${now}/${fileName}`, JSON.stringify(axeResults, 0, 4), (err) => {
+        if (err) {
+          console.error(err);
+        }
+      });
+      await browser.close();
+      expect(`${axeResults.violations.length} violations`).to.equal(
+        '0 violations',
+        `${JSON.stringify(axeResults.violations.map((violation) => ({
+          id: violation.id,
+          description: violation.description,
+          help: violation.helpUrl,
+        })), 0, 4)}
     `,
-    );
+      );
+    });
   });
 });
