@@ -39,9 +39,9 @@ export const parameters = {
       }
     ],
     grid: {
-      cellSize: 10,
+      cellSize: 4,
       opacity: 0.5,
-      cellAmount: 10,
+      cellAmount: 8,
       offsetX: 0,
       offsetY: 0,
     }
