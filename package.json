@@ -3,19 +3,16 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "cem": "custom-elements-manifest analyze",
-    "dev": "npm run cem & npm run storybook & vite",
-    "storybook": "start-storybook -p 6969",
-    "build": "vite build --emptyOutDir && cp -r ./src/static ./dist",
-    "lint:css": "stylelint --config ./.stylelintrc.css.json ./src/styles/*.css",
-    "build:storybook": "build-storybook",
-    "deploy": "rm -rf dist && npm run build && cd dist && git init && git add . && git commit -m 'deploy' && git remote add origin https://github.com/rubanp/project-name && git push --force origin main:gh-pages",
-    "test": "mocha ./tests/**/*.test.js",
-    "create": "node ./utils/create.js",
-    "nuke": "rm -rf ./node_modules && npm i",
+    "dev": "custom-elements-manifest analyze & start-storybook -p 6969 & vite",
     "new": "node ./utils/new.js",
+    "create": "node ./utils/create.js",
+    "intent": "node ./utils/intent.js",
     "save": "node ./utils/save.js",
-    "intent": "node ./utils/intent.js"
+    "lint:css": "stylelint --config ./.stylelintrc.css.json ./src/styles/*.css",
+    "test": "mocha ./tests/**/*.test.js",
+    "build": "vite build --emptyOutDir && cp -r ./src/static ./dist",
+    "deploy": "rm -rf dist && npm run build && cd dist && git init && git add . && git commit -m 'deploy' && git remote add origin https://github.com/rubanp/project-name && git push --force origin main:gh-pages",
+    "nuke": "rm -rf ./node_modules && npm i"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
