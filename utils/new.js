@@ -33,6 +33,11 @@ if (!typeWithDescription) process.exit(1);
 
 const type = typeWithDescription.replace(/:.*/, ':');
 
+if (type.includes('init')) {
+  exec("git commit -m 'initialise project with boilerplate' ");
+  process.exit(0);
+}
+
 // Get user to write a summary of max length 50 characters for the commit
 inquirer.registerPrompt('maxlength-input', MaxLengthInputPrompt);
 const { summary } = await inquirer.prompt([
