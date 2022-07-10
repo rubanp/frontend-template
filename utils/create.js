@@ -23,21 +23,14 @@ if (type !== 'page') {
   // Create appropriate names for the component depending on the context
   const componentName = `o-${_.kebabCase(component)}`;
   const className = _.upperFirst(_.camelCase(component));
-  const componentLabel = _.startCase(component);
 
   // Create files
   fse.copy('./templates/o-component.ts', `./src/components/${type}s/${componentName}.ts`).catch((err) => console.error(err));
-  fse.copy('./templates/o-component.stories.js', `./stories/${componentName}.stories.js`).catch((err) => console.error(err));
-  fse.copy('./templates/o-component.docs.mdx', `./stories/${componentName}.docs.mdx`).catch((err) => console.error(err));
 
   // Set correct names within files
   setTimeout(() => {
     exec(`sed -i "" -e 's/componentName/${componentName}/' ./src/components/${type}s/${componentName}.ts`);
     exec(`sed -i "" -e 's/className/${className}/' ./src/components/${type}s/${componentName}.ts`);
-    exec(`sed -i "" -e 's/componentName/${componentName}/g' ./stories/${componentName}.stories.js`);
-    exec(`sed -i "" -e 's/className/${className}/' ./stories/${componentName}.stories.js`);
-    exec(`sed -i "" -e 's/componentLabel/${componentLabel}/' ./stories/${componentName}.stories.js`);
-    exec(`sed -i "" -e 's/componentType/Element/' ./stories/${componentName}.stories.js`);
   }, 500);
 } else {
   const page = await new Input({
