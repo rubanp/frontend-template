@@ -34,8 +34,13 @@ if (!typeWithDescription) process.exit(1);
 const type = typeWithDescription.replace(/:.*/, ':');
 
 if (type.includes('init')) {
-  exec("git commit -m 'initialise project with boilerplate' ");
-  process.exit(0);
+  exec(`echo "${type} Initialise project with boilerplate code." > ./templates/new.commit`);
+  process.exit(1);
+}
+
+if (type.includes('start')) {
+  exec(`echo "${type} Start project." > ./templates/new.commit`);
+  process.exit(1);
 }
 
 // Get user to write a summary of max length 50 characters for the commit
@@ -49,10 +54,12 @@ const { summary } = await inquirer.prompt([
   },
 ]).then((answer) => answer);
 
-if (!summary) process.exit(1);
+if (!summary) {
+  // Create an empty git commit
+  exec(`echo "${type} ${summary}" > ./templates/new.commit`);
+  process.exit(1);
+}
 
-// Create an empty git commit
-exec(`echo "${type} ${summary}" > ./templates/new.commit`);
 
 // Prompt for an optional detailed description
 const { Toggle } = Enquirer;
@@ -62,8 +69,6 @@ const detailed = await new Toggle({
   enabled: 'Yes',
   disabled: 'No',
 }).run((answer) => answer).catch((err) => console.error(err));
-
-console.log(detailed);
 
 // Open vim to write detailed description
 if (detailed) {
