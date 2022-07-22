@@ -21,16 +21,16 @@ if (type !== 'page') {
   }).run().then((componentName) => componentName).catch(console.error);
 
   // Create appropriate names for the component depending on the context
-  const componentName = `o-${_.kebabCase(component)}`;
+  const componentName = `${type === 'element' ? 'e' : type === 'composite' ? 'c' : type === 'region' ? 'r' : ''}-${_.kebabCase(component)}`;
   const className = _.upperFirst(_.camelCase(component));
 
   // Create files
-  fse.copy('./templates/o-component.ts', `./src/components/${type}s/${componentName}.ts`).catch((err) => console.error(err));
+  fse.copy('./templates/t-component.ts', `./src/components/${componentName}.ts`).catch((err) => console.error(err));
 
   // Set correct names within files
   setTimeout(() => {
-    exec(`sed -i "" -e 's/componentName/${componentName}/' ./src/components/${type}s/${componentName}.ts`);
-    exec(`sed -i "" -e 's/className/${className}/' ./src/components/${type}s/${componentName}.ts`);
+    exec(`sed -i "" -e 's/componentName/${componentName}/' ./src/components/${componentName}.ts`);
+    exec(`sed -i "" -e 's/className/${className}/' ./src/components/${componentName}.ts`);
   }, 500);
 } else {
   const page = await new Input({

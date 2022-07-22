@@ -4,7 +4,7 @@ import {
 import {
   customElement,
 } from 'lit/decorators.js';
-import reset from '../../reset';
+import reset from './reset';
 
 @customElement('componentName')
 export default class className extends LitElement {
