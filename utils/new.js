@@ -39,7 +39,7 @@ if (type.includes('init')) {
 }
 
 if (type.includes('start')) {
-  exec(`echo "${type} Start project." > ./templates/new.commit`);
+  exec(`echo "${type} Start new empty project." > ./templates/new.commit`);
   process.exit(1);
 }
 
