@@ -31,6 +31,7 @@ const descriptions = {
   pin: 'Pin dependency to specific version',
   // Miscellaneous
   init: 'First commit of boilerplate code',
+  start: 'Start project',
   exp: 'Experiment with new code, then rebase or reset',
 };
 

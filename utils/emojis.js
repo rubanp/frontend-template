@@ -28,6 +28,7 @@ const emojis = {
   info: '📝',
   exp: '⚗️ ',
   wip: '⛔️',
+  start: '⚪️',
 };
 
 export default emojis;
