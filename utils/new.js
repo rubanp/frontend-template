@@ -30,13 +30,13 @@ if (!typeWithDescription) process.exit(1);
 const type = typeWithDescription.replace(/:.*/, ':');
 
 if (type.includes('init')) {
-  exec(`echo "${type} Initialise project with boilerplate code." > ./templates/new.commit`);
+  exec(`echo "${type} initialise project with boilerplate code" > ./templates/new.commit`);
   process.exit(1);
 }
 
 if (type.includes('start')) {
   exec(`echo "${type} Start new empty project." > ./templates/new.commit`);
-  exec(`git commit --allow-empty -m "${type} Start new empty project"`);
+  exec(`git commit --allow-empty -m "${type} start new empty project"`);
   process.exit(1);
 }
 
