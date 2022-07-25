@@ -52,12 +52,7 @@ const { summary } = await inquirer.prompt([
   },
 ]).then((answer) => answer);
 
-if (summary) {
-  // Create an empty git commit
-  exec(`echo "${type} ${summary}" > ./templates/new.commit`);
-  process.exit(1);
-}
-
+exec(`echo "${type} ${summary}" > ./templates/new.commit`);
 
 // Prompt for an optional detailed description
 const { Toggle } = Enquirer;
