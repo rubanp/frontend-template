@@ -10,7 +10,7 @@ import descriptions from './descriptions.js';
 
 console.log(chalk.blue.underline("Set your intentions for the changes you're about to make"));
 
-// Create an array of options by combining and the object with descriptions for 
+// Create an array of options by combining and the object with descriptions for
 // each type
 const options = [];
 for (const [key, value] of Object.entries(descriptions)) {
@@ -31,13 +31,12 @@ const type = typeWithDescription.replace(/:.*/, ':');
 
 if (type.includes('init')) {
   exec(`echo "${type} Initialise project with boilerplate code." > ./templates/new.commit`);
-  exec(`npm run save`);
   process.exit(1);
 }
 
 if (type.includes('start')) {
   exec(`echo "${type} Start new empty project." > ./templates/new.commit`);
-  exec(`npm run save`);
+  exec(`git commit --allow-empty -m "${type} Start new empty project"`);
   process.exit(1);
 }
 
