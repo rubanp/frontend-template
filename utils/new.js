@@ -7,18 +7,14 @@ import fs from 'fs';
 import boxen from 'boxen';
 
 import descriptions from './descriptions.js';
-import emojis from './emojis.js';
-
-exec('rm ./templates/new.commit');
 
 console.log(chalk.blue.underline("Set your intentions for the changes you're about to make"));
 
-// Create list of options for commit type
-// Create an array of options by combing the object with emojis for each type
-// and the object with descriptions for each type
+// Create an array of options by combining and the object with descriptions for 
+// each type
 const options = [];
 for (const [key, value] of Object.entries(descriptions)) {
-  options.push(`${emojis[key]} ${key}: ${chalk.italic.yellow(value)}`);
+  options.push(`${key}: ${chalk.italic.yellow(value)}`);
 }
 
 // Get user to pick one of the options for the commit type
@@ -35,11 +31,13 @@ const type = typeWithDescription.replace(/:.*/, ':');
 
 if (type.includes('init')) {
   exec(`echo "${type} Initialise project with boilerplate code." > ./templates/new.commit`);
+  exec(`npm run save`);
   process.exit(1);
 }
 
 if (type.includes('start')) {
   exec(`echo "${type} Start new empty project." > ./templates/new.commit`);
+  exec(`npm run save`);
   process.exit(1);
 }
 
@@ -54,7 +52,7 @@ const { summary } = await inquirer.prompt([
   },
 ]).then((answer) => answer);
 
-if (!summary) {
+if (summary) {
   // Create an empty git commit
   exec(`echo "${type} ${summary}" > ./templates/new.commit`);
   process.exit(1);
